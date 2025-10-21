@@ -1,0 +1,137 @@
+/* 设计系统变量管理 */
+:root {
+  /* 圆角系统 */
+  --radius-xs: 0.375rem;    /* 6px */
+  --radius-sm: 0.5rem;      /* 8px */
+  --radius-md: 0.75rem;     /* 12px */
+  --radius-lg: 1rem;        /* 16px */
+  --radius-xl: 1.25rem;     /* 20px */
+  --radius-2xl: 1.5rem;     /* 24px */
+  --radius-full: 9999px;
+
+  /* 间距系统 */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 0.75rem;    /* 12px */
+  --spacing-lg: 1rem;       /* 16px */
+  --spacing-xl: 1.5rem;     /* 24px */
+  --spacing-2xl: 2rem;      /* 32px */
+  --spacing-3xl: 3rem;      /* 48px */
+
+  /* 阴影系统 */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* 卡片阴影 */
+  --card-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --card-shadow-primary: 0 2px 20px rgba(0, 0, 0, 0.1);
+  --card-shadow-primary-hover: 0 8px 40px rgba(0, 0, 0, 0.15);
+
+  /* 过渡动画 */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+  --transition-slower: 700ms ease-in-out;
+
+  /* 模糊效果 */
+  --blur-sm: 4px;
+  --blur-md: 8px;
+  --blur-lg: 12px;
+  --blur-xl: 16px;
+  --blur-2xl: 24px;
+  --blur-3xl: 40px;
+}
+
+/* 组件样式类 */
+@layer components {
+  /* 卡片基础样式 */
+  .card-base {
+    @apply rounded-[var(--radius-xl)] overflow-hidden transition-all duration-[var(--transition-slower)] border border-border/50;
+  }
+
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-shadow-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .card-shadow-primary {
+    box-shadow: var(--card-shadow-primary);
+  }
+
+  .card-shadow-primary-hover {
+    box-shadow: var(--card-shadow-primary-hover);
+  }
+
+  /* 悬停效果 */
+  .hover-lift {
+    @apply hover:-translate-y-1;
+  }
+
+  .hover-scale {
+    @apply hover:scale-105;
+  }
+
+  .hover-lift-scale {
+    @apply hover:-translate-y-1 hover:scale-105;
+  }
+
+  /* 渐变背景 */
+  .gradient-muted {
+    @apply bg-gradient-to-br from-muted to-card;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary to-primary/90;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-secondary to-secondary/90;
+  }
+
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent to-accent/90;
+  }
+
+  /* 图标容器 */
+  .icon-container {
+    @apply w-8 h-8 rounded-full flex items-center justify-center;
+  }
+
+  .icon-container-sm {
+    @apply w-6 h-6 rounded-full flex items-center justify-center;
+  }
+
+  .icon-container-lg {
+    @apply w-10 h-10 rounded-full flex items-center justify-center;
+  }
+
+  /* 文本样式 */
+  .text-section-title {
+    @apply text-xs uppercase tracking-wider font-medium;
+  }
+
+  .text-card-title {
+    @apply text-lg md:text-xl font-semibold;
+  }
+
+  .text-quote {
+    @apply text-sm md:text-base font-medium text-balance;
+  }
+
+  /* 背景模糊 */
+  .backdrop-blur-card {
+    @apply bg-card/50 backdrop-blur-xl;
+  }
+
+  .backdrop-blur-icon {
+    @apply bg-background/80 backdrop-blur-xl;
+  }
+}
+
